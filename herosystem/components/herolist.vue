@@ -19,7 +19,7 @@
             <td>{{item.gender}}</td>
             <td>
               <a href="#" @click.prevent="del(item.id)">删除</a>
-              <a href="#">编辑</a>
+              <a href="#" @click.prevent="edit(item.id)">编辑</a>
             </td>
             <td></td>
           </tr>
@@ -55,7 +55,7 @@ export default {
         }
       });
     },
-    //跳转进入新增英雄you
+    //跳转进入新增英雄路由
     add() {
       //编程式导航
       this.$router.push("/addhero");
@@ -72,6 +72,11 @@ export default {
           }
         });
       }
+    },
+    //路由跳转到编辑页面
+    edit(index) {
+      // 编程式导航
+      this.$router.push("/heroEdit/" + index);
     }
   },
   mounted() {
