@@ -1,7 +1,7 @@
 <template>
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h1 class="page-header">英雄管理列表</h1>
-    <button type="button" class="btn btn-success">添加英雄信息</button>
+    <button type="button" class="btn btn-success" @click.prevent='add'>添加英雄信息</button>
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
@@ -54,6 +54,10 @@ export default {
                     this.datalist=data
                 }
             })
+        },
+        add(){
+            //编程式导航
+            this.$router.push('/addhero')
         }
     },
     mounted() {
