@@ -13,10 +13,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>阿卡丽</td>
-            <td>女</td>
+          <tr v-for='(item,index) in datalist' :key='index'>
+            <td>{{index+1}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.gender}}</td>
             <td>
               <a href="#">删除</a>
               <a href="#">编辑</a>
@@ -30,7 +30,36 @@
 </template>
 
 <script>
-export default {};
+//引入axios
+import axios from 'axios'
+
+export default {
+    data() {
+        return {
+            //服务器地址
+            url:'http://localhost:4399/heros',
+            //数据源
+            datalist:[]
+        }
+    },
+    methods: {
+        //数据渲染封装
+        getdata(){
+            axios({
+                method:'GET',
+                url:this.url
+            }).then(res=>{
+                let{status,data}=res
+                if(status==200){
+                    this.datalist=data
+                }
+            })
+        }
+    },
+    mounted() {
+        this.getdata()
+    },
+};
 </script>
 
 <style>
