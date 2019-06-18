@@ -1,33 +1,23 @@
 {
   "heros": [
     {
-      "id": 1,
       "name": "眼光龙",
-      "gender": "女"
-    },
-    {
-      "id": 1,
-      "name": "樊潇",
-      "gender": "女"
-    },
-    {
-      "id": 1,
-      "name": "傻逼",
-      "gender": "男"
-    },
-    {
-      "name": "几把",
       "gender": "男",
+      "id": 1
+    },
+    {
+      "name": "洗脚按摩皇帝樊潇",
+      "gender": "女",
       "id": 2
     },
     {
-      "name": "几把",
-      "gender": "男",
+      "name": "网恋骗子严冠隆",
+      "gender": "女",
       "id": 3
     },
     {
-      "name": "几把",
-      "gender": "男",
+      "name": "18岁的女朋友",
+      "gender": "女",
       "id": 4
     }
   ]

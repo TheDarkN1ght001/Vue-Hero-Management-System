@@ -1,7 +1,7 @@
 <template>
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h1 class="page-header">英雄管理列表</h1>
-    <button type="button" class="btn btn-success" @click.prevent='add'>添加英雄信息</button>
+    <button type="button" class="btn btn-success" @click.prevent="add">添加英雄信息</button>
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
@@ -13,12 +13,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for='(item,index) in datalist' :key='index'>
+          <tr v-for="(item,index) in datalist" :key="index">
             <td>{{index+1}}</td>
             <td>{{item.name}}</td>
             <td>{{item.gender}}</td>
             <td>
-              <a href="#">删除</a>
+              <a href="#" @click.prevent="del(item.id)">删除</a>
               <a href="#">编辑</a>
             </td>
             <td></td>
@@ -31,38 +31,52 @@
 
 <script>
 //引入axios
-import axios from 'axios'
+import axios from "axios";
 
 export default {
-    data() {
-        return {
-            //服务器地址
-            url:'http://localhost:4399/heros',
-            //数据源
-            datalist:[]
+  data() {
+    return {
+      //服务器地址
+      url: "http://localhost:4399/heros",
+      //数据源
+      datalist: []
+    };
+  },
+  methods: {
+    //数据渲染封装
+    getdata() {
+      axios({
+        method: "GET",
+        url: this.url
+      }).then(res => {
+        let { status, data } = res;
+        if (status == 200) {
+          this.datalist = data;
         }
+      });
     },
-    methods: {
-        //数据渲染封装
-        getdata(){
-            axios({
-                method:'GET',
-                url:this.url
-            }).then(res=>{
-                let{status,data}=res
-                if(status==200){
-                    this.datalist=data
-                }
-            })
-        },
-        add(){
-            //编程式导航
-            this.$router.push('/addhero')
-        }
+    //跳转进入新增英雄you
+    add() {
+      //编程式导航
+      this.$router.push("/addhero");
     },
-    mounted() {
-        this.getdata()
-    },
+    //删除英雄
+    del(index) {
+      if (confirm("你确定要删除吗！！！")) {
+        axios({
+          method: "DELETE",
+          url: `${this.url}/${index}`
+        }).then(res => {
+          if (res.status == 200) {
+            this.getdata();
+          }
+        });
+      }
+    }
+  },
+  mounted() {
+    this.getdata();
+  }
 };
 </script>
 
