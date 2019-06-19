@@ -1,7 +1,7 @@
 <template>
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h1 class="page-header">英雄管理列表</h1>
-    <button type="button" class="btn btn-success" @click.prevent="add">添加英雄信息</button>
+    <h1 class="page-header">国际犯罪分子管理列表</h1>
+    <button type="button" class="btn btn-success" @click.prevent="add">添加犯罪分子</button>
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
@@ -86,4 +86,27 @@ export default {
 </script>
 
 <style>
+ td {
+     color: #dd5044;
+     font-size: 50px;
+ }
+ th {
+     font-weight: 700;
+     color: blue;
+     font-size: 50px;
+     font-style: italic;
+ }
+ tr:hover {
+     background-color: skyblue !important;
+ }
+ h1 {
+     color: red;
+     font-weight: 700;
+     font-size: 50px;
+ }
+ button {
+     width: 250px;
+     height: 70px;
+     font-size: 30px !important;
+ }
 </style>
