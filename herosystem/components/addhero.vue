@@ -29,7 +29,7 @@
 
 <script>
 // 引入 axios
-import axios from "axios";
+// import axios from "axios";
 export default {
   data() {
     return {
@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     add() {
-      axios({
+      this.$http({
         method: "POST",
         url: this.url,
         data: this.addHero

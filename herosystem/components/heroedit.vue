@@ -29,7 +29,7 @@
 
 <script>
 // 引入 axios
-import axios from "axios";
+// import axios from "axios";
 export default {
   data() {
     return {
@@ -45,7 +45,7 @@ export default {
     //根据ID获取默认数据
     getDataById() {
       const id = this.$route.params.id;
-      axios({
+      this.$http({
         method: "GET",
         url: `${this.url}/${id}`
       }).then(res => {
@@ -58,7 +58,7 @@ export default {
     //修改后的数据提交到服务器
     edit() {
       const id = this.$route.params.id;
-      axios({
+      this.$http({
         method: "PUT",
         url: `${this.url}/${id}`,
         data:this.editHero

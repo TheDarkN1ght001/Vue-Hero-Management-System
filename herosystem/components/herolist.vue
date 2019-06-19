@@ -31,7 +31,7 @@
 
 <script>
 //引入axios
-import axios from "axios";
+// import axios from "axios";
 
 export default {
   data() {
@@ -45,7 +45,7 @@ export default {
   methods: {
     //数据渲染封装
     getdata() {
-      axios({
+      this.$http({
         method: "GET",
         url: this.url
       }).then(res => {
@@ -63,7 +63,7 @@ export default {
     //删除英雄
     del(index) {
       if (confirm("你确定要删除吗！！！")) {
-        axios({
+        this.$http({
           method: "DELETE",
           url: `${this.url}/${index}`
         }).then(res => {

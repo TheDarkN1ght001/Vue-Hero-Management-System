@@ -10,6 +10,11 @@ import '../src/assets/css/index.css'
 //引入封装好的router
 import router from './router'
 
+//引入axios
+import axios from 'axios'
+
+//将axios作为Vue的实例属性添加到构造器
+Vue.prototype.$http = axios
 
 
 new Vue({
